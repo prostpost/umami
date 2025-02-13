@@ -21,6 +21,8 @@ export const useCors = createMiddleware(
   cors({
     // Cache CORS preflight request 24 hours by default
     maxAge: Number(process.env.CORS_MAX_AGE) || 86400,
+    methods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
+    origin: ['https://app.prostpost.me', 'https://blog.prostpost.me', /\.prostpost\.me$/],
   }),
 );
 
